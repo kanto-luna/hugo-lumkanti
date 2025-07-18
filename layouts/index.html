@@ -1,8 +1,13 @@
 {{ define "main" }}
-<!-- {{ .Content }} -->
+
 {{ range .Pages.ByTitle }}
+<div class="list-item">
   <h2>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   </h2>
+  <time datetime='{{ .Date.Format "2006-01-02" }}'>
+    {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+  </time>
+</div>
 {{ end }}
 {{ end }}
